@@ -1,0 +1,76 @@
+name: Disc 1 Executable (SLPS_018.40)
+options:
+  basename: main
+  target_path: rom/SLPS_018.40
+  base_path: ..
+  platform: psx
+  compiler: GCC
+
+  asm_path: asm/main
+  src_path: src/main
+  build_path: build/
+
+  ld_script_path: linkers/main.ld
+
+  gp_value: 0x8007aef0
+  global_vram_start: 0x80010000
+  global_vram_end: 0x80200000
+
+  o_as_suffix: False
+  use_legacy_include_asm: False
+
+  asm_function_macro: glabel
+  asm_jtbl_label_macro: jlabel
+  asm_data_macro: dlabel
+
+  section_order: [".rodata", ".text", ".data", ".sdata", ".sbss", ".bss"]
+  symbol_addrs_path:
+    - configs/sym.main.txt
+  reloc_addrs_path:
+    - configs/rel.main.txt
+
+  undefined_funcs_auto_path: linkers/undefined_funcs_auto.main.txt
+  undefined_syms_auto_path: linkers/undefined_syms_auto.main.txt
+
+  extensions_path: tools/splat_ext
+
+  subalign: 4
+
+  string_encoding: ASCII
+  data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  data_string_guesser_level: 2
+  migrate_rodata_to_functions: False
+
+  ld_bss_is_noload: False
+segments:
+  - name: header
+    type: header
+    start: 0x0
+
+  - name: main
+    type: code
+    start: 0x800
+    vram: 0x80010000
+    align: 4
+    subalign: 4
+    bss_size: 0
+    subsegments:
+      # .rodata
+      - [0x800, rdata]  #
+      - [0xD44, rdata]
+      - [0x1118, rdata]
+      - [0x163C, rdata]
+      - [0x192C, rodata]
+      - [0x20f0, rodata] #
+      - [0x23E4, rodata]
+
+      # .text
+      - [0x2ce4, c, main]
+      - [0x3284, asm]
+
+      - [0x48078, data]
+      - [0x6b6f0, data, main]
+      - [0x6b700, data]
+  - [0x6c000]
+    

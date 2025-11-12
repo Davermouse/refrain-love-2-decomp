@@ -1,0 +1,16 @@
+__main = 0x8002de28;
+
+main_loop = 0x800124E4; // type:func
+main = 0x80012514;  // type:func
+
+ResetCallback = 0x8004737c; // type:func
+
+update_cached_input = 0x800129CC; // type:func
+
+swap_gfx_buffers = 0x80026160;
+
+s_boot = 0x8007aef0;
+
+EnableEvents = 0x80029238;
+InitEventsInput = 0x80029348;
+DoInitHeap = 0x8002ddfc;
