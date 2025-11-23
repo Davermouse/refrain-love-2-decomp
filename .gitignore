@@ -10,6 +10,11 @@ permuter/
 expected/
 .venv/
 .cache/
+.splache
+.ninja_log
+build.ninja
+matching.ninja
+objdiff.ninja
 
 objdiff.json
 null.d
@@ -18,3 +23,5 @@ ctx.c
 compile.log
 compile_commands.json
 Zone.Identifier
+
+.DS_Store

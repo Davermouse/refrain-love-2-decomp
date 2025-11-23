@@ -1,18 +1,16 @@
-#include <psyq/libetc.h>
-#include <psyq/libgpu.h>
-
 #include "common.h"
 
-void main_loop() {
-    do
-    {
-        swap_gfx_buffers();
-        func_80013F84();
-        func_80020360();
-        func_80026C34();
-    } while (true);
-    
-}
+const char SECTION(".rodata") s_out_of_memory[] = "out of memory";
+
+const char SECTION(".sdata") s_boot[] = "_BOOT";
+
+const s16 SECTION(".sdata") initial_global_data[] = {
+    0xe58e,
+    0x6c90,
+    0xf68c
+};
+
+/*
 
 int main() {
     s16 v1;
@@ -38,10 +36,12 @@ int main() {
 
     func_8002946c(1, 0x1e00, 7, 1);
 }
+    
+*/
 
-//INCLUDE_ASM("asm/main/nonmatchings/main", main);
+INCLUDE_ASM("asm/main/nonmatchings/main", main);
 
-INCLUDE_ASM("asm/main/nonmatchings/main", func_80012700);
+INCLUDE_ASM("asm/main/nonmatchings/main", gs_sync_callback);
 
 INCLUDE_ASM("asm/main/nonmatchings/main", update_cached_input);
 
@@ -49,4 +49,4 @@ INCLUDE_ASM("asm/main/nonmatchings/main", func_80012A18);
 
 INCLUDE_ASM("asm/main/nonmatchings/main", func_80012A50);
 
-INCLUDE_ASM("asm/main/nonmatchings/main", func_80012A64);
+INCLUDE_ASM("asm/main/nonmatchings/main", set_gs_callback);

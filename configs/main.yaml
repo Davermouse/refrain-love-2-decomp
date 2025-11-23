@@ -57,20 +57,33 @@ segments:
     bss_size: 0
     subsegments:
       # .rodata
-      - [0x800, rdata]  #
-      - [0xD44, rdata]
-      - [0x1118, rdata]
-      - [0x163C, rdata]
+      - [0x800, .rodata, main]
+      - [0x810, rodata]
+      - [0x834, rodata]
+      - [0xa2c, rodata]
+      - [0xD44, rodata]
+      - [0x1118, rodata]
+      - [0x163C, rodata]
       - [0x192C, rodata]
       - [0x20f0, rodata] #
       - [0x23E4, rodata]
 
       # .text
-      - [0x2ce4, c, main]
-      - [0x3284, asm]
+      - [0x2ce4, c, main_loop]
+      - [0x2d14, c, main]
+      - [0x3288, c, logging]
+      - [0x32a0, c, checked_malloc]
+      - [0x330c, asm]
+#      - [0x330c, asm, stack, push_pop]
+#      - [0x3570, asm, stack, mapping]
+#      - [0x39E8, asm, event, cmds]
 
-      - [0x48078, data]
-      - [0x6b6f0, data, main]
-      - [0x6b700, data]
+#      - [0x37b7c, lib, libetc, intr]
+
+#      - [0x3823C, asm, misc]
+
+      - [0x48078, sdata]
+      - [0x6b6f0, .sdata, main]
+      - [0x6b700, sdata]
   - [0x6c000]
     

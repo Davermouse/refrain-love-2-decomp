@@ -1,16 +1,33 @@
+s_out_of_memory = 0x80010000;
+
 __main = 0x8002de28;
 
 main_loop = 0x800124E4; // type:func
 main = 0x80012514;  // type:func
+gs_sync_callback = 0x80012700; // type:func
+set_gs_callback = 0x80012a64; // type:func
+log_error = 0x80012a88; // type:func
+log_stack_error = 0x80012a90; // type:func
+log_other_error = 0x80012A98; // type:func
+checked_malloc = 0x80012aa0; // type:func
+push_stack_2_entry = 0x80012b0c; // type:func
+map_cmd_param_to_val = 0x80012d70; // type:func
 
 ResetCallback = 0x8004737c; // type:func
 
-update_cached_input = 0x800129CC; // type:func
+update_cached_input = 0x800129cc; // type:func
 
 swap_gfx_buffers = 0x80026160;
+
+malloc2 = 0x8002e2fc; // type:func
 
 s_boot = 0x8007aef0;
 
 EnableEvents = 0x80029238;
 InitEventsInput = 0x80029348;
 DoInitHeap = 0x8002ddfc;
+VSyncCallback = 0x8004740c;
+
+initial_global_data = 0x8007AEF8;
+
+stack_end = 0x801dffff;
