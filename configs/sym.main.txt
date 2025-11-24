@@ -1,10 +1,16 @@
+
+//================================================
+//=== .rodata section
+//================================================
+
 s_out_of_memory = 0x80010000;
 
-__main = 0x8002de28;
+
 
 main_loop = 0x800124E4; // type:func
 main = 0x80012514;  // type:func
 gs_sync_callback = 0x80012700; // type:func
+update_cached_input = 0x800129cc; // type:func
 set_gs_callback = 0x80012a64; // type:func
 log_error = 0x80012a88; // type:func
 log_stack_error = 0x80012a90; // type:func
@@ -12,22 +18,66 @@ log_other_error = 0x80012A98; // type:func
 checked_malloc = 0x80012aa0; // type:func
 push_stack_2_entry = 0x80012b0c; // type:func
 map_cmd_param_to_val = 0x80012d70; // type:func
+init_globals = 0x80013d90; // type:func
+load_event = 0x80013e58; // type:func
+run_event_loop_and_loop_fn = 0x80013f84; // type:func
+set_push_on_set = 0x80013fd4; // type:func
+load_sounds = 0x80013ff8; // type:func
 
-ResetCallback = 0x8004737c; // type:func
+write_gfx_unk_1 = 0x800191f0; // type:func
+read_gfx_unk_1 = 0x800191fc; // type:func
 
-update_cached_input = 0x800129cc; // type:func
+load_data_files = 0x800196f4; // type:func
 
-swap_gfx_buffers = 0x80026160;
+set_loading_images = 0x8001b11c; // type:func
 
+update_display = 0x80020360; // type:func
+
+load_initial_textures = 0x800218b4; // type:func
+
+get_seq_volume = 0x800237a8; // type:func
+get_volumes = 0x80023914; // type:func
+set_volumes = 0x80023920; // type:func
+set_seq_volume = 0x800238f0; // type:func
+get_is_mono = 0x8002399c; // type:func
+SetIsMono = 0x800239a8; // type:func
+
+init_sound = 0x80023a04;  // type:func
+
+swap_gfx_buffers = 0x80026160; // type:func
+init_gfx = 0x80026b30; // type:func
+swap_clear_ots = 0x80026C34; // type:func
+
+EnableEvents = 0x80029238; // type:func
+InitEventsInput = 0x80029348; // type:func
+SetInputFn = 0x800295e4; // type:func
+
+__main = 0x8002de28;
 malloc2 = 0x8002e2fc; // type:func
 
+SetGraphDebug = 0x8002fa90; // type:func
+SetDispMask = 0x8002fc00; // type:func
+
+DoInitHeap = 0x8002ddfc; // type:func
+EnterCriticalSection = 0x8002df4c; // type:func A36.obj?
+ExitCriticalSection = 0x8002df5c; // type:func A37.obj?
+ChangeClearPAD = 0x8002dfec; // type:func
+
+CDInit = 0x80042ccc; // type:func
+CDSetDebug = 0x80042ea4; // type:func
+
+PadInit = 0x800470ac; // type:func
+VSync = 0x8004715c; // type:func
+ResetCallback = 0x8004737c; // type:func
+VSyncCallback = 0x8004740c; // type:func
+
 s_boot = 0x8007aef0;
-
-EnableEvents = 0x80029238;
-InitEventsInput = 0x80029348;
-DoInitHeap = 0x8002ddfc;
-VSyncCallback = 0x8004740c;
-
 initial_global_data = 0x8007AEF8;
+g_push_on_set = 0x8007af8c;
+g_gfx_unk_1 = 0x8007b084;
+g_is_mono = 0x8007b4f4;
+g_volume = 0x8007b4f9;
+g_alt_global_state = 0x8007b6a4;
+g_global_state = 0x8007b6ec;
 
 stack_end = 0x801dffff;
