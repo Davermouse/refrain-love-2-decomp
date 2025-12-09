@@ -53,6 +53,7 @@ InitEventsInput = 0x80029348; // type:func
 SetInputFn = 0x800295e4; // type:func
 
 __main = 0x8002de28;
+InitHeap2 = 0x8002e2ac; // type:func
 malloc2 = 0x8002e2fc; // type:func
 
 SetGraphDebug = 0x8002fa90; // type:func
@@ -80,4 +81,5 @@ g_volume = 0x8007b4f9;
 g_alt_global_state = 0x8007b6a4;
 g_global_state = 0x8007b6ec;
 
+g_heap_start = 0x800c5c48;
 stack_end = 0x801dffff;
